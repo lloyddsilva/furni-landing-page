@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Furni Landing Page" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Furni Landing Page" %>">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <title><%= content_for?(:title) ? yield(:title) : "Furni - The easiest way to buy and sell furniture" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Furni" %>">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
-    <header>
+  <body data-spy="scroll">
+    <header id="top" class="header navbar-fixed-top">
       <%= render 'layouts/navigation' %>
     </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
+    <%= yield %>
+
+    <!-- ******FOOTER****** --> 
+    <footer class="footer">
+        <div class="container">
+            <small class="copyright pull-left">Copyright &copy; 2015 <a href="http://furniapp.com/" target="_blank">Furni</a></small>
+        </div>
+    </footer><!--//footer-->
+
   </body>
 </html>
+
